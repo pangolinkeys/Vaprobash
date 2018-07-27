@@ -78,13 +78,3 @@ if [[ $NGINX_IS_INSTALLED -eq 0 ]]; then
     sudo service nginx reload
 fi
 
-if [[ $APACHE_IS_INSTALLED -eq 0 ]]; then
-    # Find and replace to find public_folder and replace with laravel_public_folder
-    # Change DocumentRoot
-    # Change ProxyPassMatch fcgi path
-    # Change <Directory ...> path
-    sudo sed -i "s@$3@$laravel_public_folder@" /etc/apache2/sites-available/$1.xip.io.conf
-
-
-    sudo service apache2 reload
-fi
